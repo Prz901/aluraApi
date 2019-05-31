@@ -21,6 +21,10 @@ module.exports = function(app) {
     PagamentoDao.salva(pagamento, function(erro, resultado) {
       console.log("pagamento criado");
       resp.json(pagamento);
+
+      PagamentoDao.lista(function(erro, resultado) {
+        resp.send(resultado);
+      });
     });
   });
 };
